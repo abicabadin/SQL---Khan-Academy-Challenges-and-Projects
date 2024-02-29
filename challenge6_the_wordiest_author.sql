@@ -37,3 +37,10 @@ INSERT INTO books (author, title, words)
     VALUES ("J.R.R. Tolkien", "Two Towers", 143436);
 INSERT INTO books (author, title, words)
     VALUES ("J.R.R. Tolkien", "Return of the King", 134462);
+
+-- Step 1 : Select all the authors who have written more than 1 million words, using GROUP BY and HAVING. Your results table should include the 'author' and their total word count as 'total_words' column.
+    
+SELECT author, SUM(words) AS total_words from books group by author having total_words>1000000;
+ 
+ -- Step 2: Now select all the authors that write more than an average of 150,000 words per book. Your results table should include the 'author' and average words as an 'avg_words' column.
+SELECT author, AVG(words) AS avg_words from books group by author having avg_words > 150000;
